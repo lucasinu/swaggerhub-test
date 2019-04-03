@@ -1,0 +1,62 @@
+---
+swagger: "2.0"
+info:
+  description: "First test swagger API"
+  version: "0.0.1"
+  title: "Test"
+host: "virtserver.swaggerhub.com"
+basePath: "/lucasinu/Test-API/0.0.1"
+schemes:
+- "https"
+paths:
+  /vehicle:
+    get:
+      description: "Details about owned vehicle"
+      operationId: "vehicleGET"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema: {}
+      x-swagger-router-controller: "Default"
+  /vehicle/{id}/data_request/drive_state:
+    get:
+      description: "Returns the state of the vehicle"
+      operationId: "drive_state"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id number of the car"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema: {}
+      x-swagger-router-controller: "Default"
+  /vehicle/{id}/command/set_temps:
+    post:
+      description: "Set the temperature"
+      operationId: "set_temps"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id number of the car"
+        required: true
+        type: "string"
+      - name: "drive_temp"
+        in: "query"
+        description: "The desired temperature of the car"
+        required: true
+        type: "string"
+      - name: "passenger_temp"
+        in: "query"
+        description: "The desired temperature of passenger's side"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema: {}
+      x-swagger-router-controller: "Default"
+definitions: {}
